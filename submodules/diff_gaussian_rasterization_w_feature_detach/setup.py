@@ -3,16 +3,23 @@
 # GRAPHDECO research group, https://team.inria.fr/graphdeco
 # All rights reserved.
 #
-# This software is free for non-commercial, research and evaluation use 
+# This software is free for non-commercial, research and evaluation use
 # under the terms of the LICENSE.md file.
 #
 # For inquiries contact  george.drettakis@inria.fr
 #
 
-from setuptools import setup
-from torch.utils.cpp_extension import CUDAExtension, BuildExtension, _get_build_directory, load
 import os
-os.path.dirname(os.path.abspath(__file__))
+
+from setuptools import setup
+from torch.utils.cpp_extension import (
+    BuildExtension,
+    CUDAExtension,
+    _get_build_directory,
+    load,
+)
+
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # setup(
 #     name="diff_gaussian_rasterization",
@@ -26,22 +33,23 @@ os.path.dirname(os.path.abspath(__file__))
 #             "cuda_rasterizer/backward.cu",
 #             "rasterize_points.cu",
 #             "ext.cpp"],
-#             extra_compile_args={"nvcc": ["-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/")]})
+#             extra_compile_args={"nvcc": ["-I" + os.path.join(THIS_DIR, "third_party/glm/")]})
 #         ],
 #     cmdclass={
 #         'build_ext': BuildExtension
 #     }
 # )
 
-name="diff_gaussian_rasterization_feature_detach"
+name = "diff_gaussian_rasterization_feature_detach"
 build_dir = _get_build_directory(name, verbose=False)
 _C = load(
     name=name,
     sources=[
-            "submodules/diff_gaussian_rasterization_w_feature_detach/cuda_rasterizer/rasterizer_impl.cu",
-            "submodules/diff_gaussian_rasterization_w_feature_detach/cuda_rasterizer/forward.cu",
-            "submodules/diff_gaussian_rasterization_w_feature_detach/cuda_rasterizer/backward.cu",
-            "submodules/diff_gaussian_rasterization_w_feature_detach/rasterize_points.cu",
-            "submodules/diff_gaussian_rasterization_w_feature_detach/ext.cpp"],
-    extra_cuda_cflags=["-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/")],
+        os.path.join(THIS_DIR, "cuda_rasterizer/rasterizer_impl.cu"),
+        os.path.join(THIS_DIR, "cuda_rasterizer/forward.cu"),
+        os.path.join(THIS_DIR, "cuda_rasterizer/backward.cu"),
+        os.path.join(THIS_DIR, "rasterize_points.cu"),
+        os.path.join(THIS_DIR, "ext.cpp"),
+    ],
+    extra_cuda_cflags=["-I" + os.path.join(THIS_DIR, "third_party/glm/")],
 )
