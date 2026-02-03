@@ -2,18 +2,12 @@
 # Referred to: https://github.com/zhanghang1989/PyTorch-Encoding
 ###########################################################################
 import math
-import numpy as np
 
+import numpy as np
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.parallel.data_parallel import DataParallel
 from torch.nn.parallel.scatter_gather import scatter
-import threading
-import torch
-from torch.cuda._utils import _get_device_index
-from torch.cuda.amp import autocast
-from torch._utils import ExceptionWrapper
 
 up_kwargs = {'mode': 'bilinear', 'align_corners': True}
 

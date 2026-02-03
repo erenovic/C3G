@@ -14,11 +14,11 @@
 # https://github.com/rwightman/pytorch-image-models/blob/master/timm/models/layers/patch_embed.py
 
 
-import torch
-import torch.nn as nn 
-
-from itertools import repeat
 import collections.abc
+from itertools import repeat
+
+import torch
+import torch.nn as nn
 
 
 def _ntuple(n):
@@ -199,7 +199,7 @@ class PositionGetter(object):
         self.cache_positions = {}
         
     def __call__(self, b, h, w, device):
-        if not (h,w) in self.cache_positions:
+        if (h,w) not in self.cache_positions:
             x = torch.arange(w, device=device)
             y = torch.arange(h, device=device)
             self.cache_positions[h,w] = torch.cartesian_prod(y, x) # (h, w, 2)

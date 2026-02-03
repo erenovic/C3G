@@ -1,38 +1,21 @@
-import os
 import argparse
+import math
+import os
+
+import cv2
+import encoding.utils as utils
 import numpy as np
-from tqdm import tqdm
-from collections import OrderedDict
 import torch
 import torch.nn.functional as F
-from torch.utils import data
-import torchvision.transforms as transform
-from torch.nn.parallel.scatter_gather import gather
-import encoding.utils as utils
-from encoding.nn import SegmentationLosses, SyncBatchNorm
-from encoding.parallel import DataParallelModel, DataParallelCriterion
-from encoding.datasets import test_batchify_fn 
+from additional_utils.encoding_models import MultiEvalModule as LSeg_MultiEvalModule
+from data import get_dataset
+from encoding.datasets import test_batchify_fn
 from encoding.models.sseg import BaseNet
 from modules.lseg_module import LSegModule
+from torch.utils import data
+from tqdm import tqdm
 from utils import Resize
-import cv2
-import math
-import types
-import functools
-import torchvision.transforms as torch_transforms
-import copy
-import itertools
-from PIL import Image
-import matplotlib.pyplot as plt
-import clip
-import matplotlib as mpl
-import matplotlib.colors as mplc
-import matplotlib.figure as mplfigure
-import matplotlib.patches as mpatches
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-from data import get_dataset
-from additional_utils.encoding_models import MultiEvalModule as LSeg_MultiEvalModule
-import torchvision.transforms as transforms
+
 
 class Options:
     def __init__(self):

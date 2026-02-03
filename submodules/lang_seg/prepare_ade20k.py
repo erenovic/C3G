@@ -2,11 +2,12 @@
 # revised from https://github.com/zhanghang1989/PyTorch-Encoding/blob/331ecdd5306104614cb414b16fbcd9d1a8d40e1e/scripts/prepare_ade20k.py
 
 """Prepare ADE20K dataset"""
-import os
-import shutil
 import argparse
+import os
 import zipfile
+
 from encoding.utils import download, mkdir
+
 # -
 
 _TARGET_DIR = os.path.expanduser('../datasets/')

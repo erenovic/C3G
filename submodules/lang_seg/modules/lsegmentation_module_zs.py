@@ -1,32 +1,20 @@
-import types
-import time
-import random
-import clip
-import torch
-import torch.nn as nn
-import torchvision.transforms as transforms
-
 from argparse import ArgumentParser
 
 import pytorch_lightning as pl
-
-from encoding.models import get_segmentation_model
-from encoding.nn import SegmentationLosses
-
-from encoding.utils import batch_pix_accuracy, batch_intersection_union
+import torch
 
 # add mixed precision
 import torch.cuda.amp as amp
-import numpy as np
+import torch.nn as nn
 from encoding.utils.metrics import SegmentationMetric
+from fewshot_data.common import utils
+from fewshot_data.common.evaluation import Evaluator
 
 # get fewshot dataloader
-from fewshot_data.model.hsnet import HypercorrSqueezeNetwork
-from fewshot_data.common.logger import Logger, AverageMeter
-from fewshot_data.common.evaluation import Evaluator
-from fewshot_data.common import utils
+from fewshot_data.common.logger import AverageMeter, Logger
 from fewshot_data.data.dataset import FSSDataset
-        
+
+
 class Fewshot_args:
     datapath = 'fewshot_data/Datasets_HSN'
     benchmark = 'pascal'

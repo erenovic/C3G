@@ -1,10 +1,8 @@
-import os
 from pathlib import Path
 
 import hydra
 import torch
 import wandb
-import signal
 from colorama import Fore
 from jaxtyping import install_import_hook
 from lightning.pytorch import Trainer
@@ -14,7 +12,6 @@ from lightning.pytorch.strategies import DDPStrategy
 from omegaconf import DictConfig, OmegaConf
 
 from src.misc.weight_modify import checkpoint_filter_fn
-from src.model.distiller import get_distiller
 
 # Configure beartype and jaxtyping.
 with install_import_hook(
@@ -30,8 +27,8 @@ with install_import_hook(
     from src.misc.wandb_tools import update_checkpoint_path
     from src.model.decoder import get_decoder
     from src.model.encoder import get_encoder
-    from src.model.model_wrapper import ModelWrapper
     from src.model.load_foundation_model import load_foundation_model
+    from src.model.model_wrapper import ModelWrapper
 
 
 def cyan(text: str) -> str:

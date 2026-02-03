@@ -1,16 +1,14 @@
 import json
 from dataclasses import dataclass
-from pathlib import Path
 
 import hydra
 import torch
 from jaxtyping import install_import_hook
-from omegaconf import DictConfig
 from lightning import Trainer
+from omegaconf import DictConfig
 
 from src.evaluation.pose_evaluator import PoseEvaluator
-from src.loss import get_losses, LossCfgWrapper
-from src.misc.wandb_tools import update_checkpoint_path
+from src.loss import LossCfgWrapper, get_losses
 from src.model.decoder import get_decoder
 from src.model.encoder import get_encoder
 
@@ -19,8 +17,13 @@ with install_import_hook(
     ("src",),
     ("beartype", "beartype"),
 ):
-    from src.config import load_typed_config, ModelCfg, CheckpointingCfg, separate_loss_cfg_wrappers, \
-    separate_dataset_cfg_wrappers
+    from src.config import (
+        CheckpointingCfg,
+        ModelCfg,
+        load_typed_config,
+        separate_dataset_cfg_wrappers,
+        separate_loss_cfg_wrappers,
+    )
     from src.dataset.data_module import DataLoaderCfg, DataModule, DatasetCfgWrapper
     from src.evaluation.evaluation_cfg import EvaluationCfg
     from src.global_cfg import set_cfg

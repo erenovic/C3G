@@ -4,8 +4,10 @@
 # --------------------------------------------------------
 # croppping utilities
 # --------------------------------------------------------
-import PIL.Image
 import os
+
+import PIL.Image
+
 os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 import cv2  # noqa
 import numpy as np  # noqa

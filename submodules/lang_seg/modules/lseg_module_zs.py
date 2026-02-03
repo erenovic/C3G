@@ -1,20 +1,8 @@
-import re
-import torch
-import torch.nn as nn
-import torchvision.transforms as transforms
+import os
 from argparse import ArgumentParser
-import pytorch_lightning as pl
+
 from .lsegmentation_module_zs import LSegmentationModuleZS
 from .models.lseg_net_zs import LSegNetZS, LSegRNNetZS
-from encoding.models.sseg.base import up_kwargs
-import os
-import clip
-import numpy as np
-from scipy import signal
-import glob
-from PIL import Image
-import matplotlib.pyplot as plt
-import pandas as pd
 
 
 class LSegModuleZS(LSegmentationModuleZS):

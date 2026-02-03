@@ -1,11 +1,10 @@
 import logging
-from typing import List, Dict
-
 import math
-import torch
-from torch import nn as nn
-import torch.nn.functional as F
+from typing import Dict, List
 
+import torch
+import torch.nn.functional as F
+from torch import nn as nn
 
 _logger = logging.getLogger(__name__)
 

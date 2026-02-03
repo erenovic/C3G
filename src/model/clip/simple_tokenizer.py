@@ -1,7 +1,6 @@
 import gzip
 import html
 import os
-from collections.abc import Sequence
 from functools import lru_cache
 
 import ftfy

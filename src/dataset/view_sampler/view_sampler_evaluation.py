@@ -9,7 +9,6 @@ from jaxtyping import Float, Int64
 from torch import Tensor
 
 from ...evaluation.evaluation_index_generator import IndexEntry
-from ...global_cfg import get_cfg
 from ...misc.step_tracker import StepTracker
 from ..types import Stage
 from .additional_view_hack import add_addtional_context_index

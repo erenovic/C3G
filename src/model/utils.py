@@ -1,12 +1,13 @@
-import torch
+import warnings
 from pathlib import Path
+
+import torch
+import torch.nn.functional as F
 from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap
-from torchvision.transforms.functional import pil_to_tensor
 from PIL import Image
-from sklearn.decomposition import PCA
-import torch.nn.functional as F
-import warnings
+from torchvision.transforms.functional import pil_to_tensor
+
 
 def save_segmap(gaussian_upfeature,
                 seg: torch.Tensor, 

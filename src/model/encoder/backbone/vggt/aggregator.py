@@ -5,15 +5,15 @@
 # LICENSE file in the root directory of this source tree.
 
 import logging
+from typing import List, Tuple
+
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-from typing import Optional, Tuple, Union, List, Dict, Any
 
 from .layers import PatchEmbed
 from .layers.block import Block
-from .layers.rope import RotaryPositionEmbedding2D, PositionGetter
-from .layers.vision_transformer import vit_small, vit_base, vit_large, vit_giant2
+from .layers.rope import PositionGetter, RotaryPositionEmbedding2D
+from .layers.vision_transformer import vit_base, vit_giant2, vit_large, vit_small
 
 logger = logging.getLogger(__name__)
 

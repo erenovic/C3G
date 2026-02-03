@@ -1,8 +1,7 @@
 import torch.nn as nn
-import torch
 import torch.nn.functional as F
-
 from einops import rearrange
+
 
 class FeedForward(nn.Module):
     def __init__(self, dim, hidden_dim, dropout = 0.):

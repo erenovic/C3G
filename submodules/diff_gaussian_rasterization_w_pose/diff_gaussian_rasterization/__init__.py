@@ -10,9 +10,12 @@
 #
 
 from typing import NamedTuple
-import torch.nn as nn
+
 import torch
+import torch.nn as nn
+
 from ..setup import _C
+
 
 def cpu_deep_copy_tuple(input_tuple):
     copied_tensors = [item.cpu().clone() if isinstance(item, torch.Tensor) else item for item in input_tuple]

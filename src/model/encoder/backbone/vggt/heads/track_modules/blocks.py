@@ -8,12 +8,13 @@
 # Modified from https://github.com/facebookresearch/co-tracker/
 
 import math
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from .modules import AttnBlock, CrossAttnBlock
 from .utils import bilinear_sampler
-from .modules import Mlp, AttnBlock, CrossAttnBlock, ResidualBlock
 
 
 class EfficientUpdateFormer(nn.Module):

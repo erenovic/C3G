@@ -1,7 +1,5 @@
 import json
 import subprocess
-import sys
-import os
 from pathlib import Path
 from typing import Literal, TypedDict
 

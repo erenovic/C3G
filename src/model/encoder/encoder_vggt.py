@@ -1,4 +1,3 @@
-from copy import deepcopy
 from dataclasses import dataclass
 from typing import Literal, Optional
 
@@ -10,14 +9,18 @@ from torch import Tensor, nn
 
 from ...dataset.shims.normalize_shim import apply_normalize_shim
 from ...dataset.types import BatchedExample, DataShim
-from .heads import DPTHead
 from ...geometry.projection import sample_image_grid
 from ..types import Gaussians
-from .backbone import Backbone, BackboneCfg, get_backbone
-from .common.gaussian_adapter import GaussianAdapter, GaussianAdapterCfg, UnifiedGaussianAdapter
+from .backbone import BackboneCfg, get_backbone
+from .backbone.croco.misc import freeze_all_params
+from .common.gaussian_adapter import (
+    GaussianAdapter,
+    GaussianAdapterCfg,
+    UnifiedGaussianAdapter,
+)
+from .common.gmae import InstillTransformer, Transformer
 from .encoder import Encoder
-from .common.gmae import Transformer, InstillTransformer
-from .backbone.croco.misc import fill_default_args, freeze_all_params
+from .heads import DPTHead
 
 inf = float('inf')
 

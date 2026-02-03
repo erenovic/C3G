@@ -4,11 +4,11 @@
 # --------------------------------------------------------
 # geometry utilitary functions
 # --------------------------------------------------------
-import torch
 import numpy as np
+import torch
 from scipy.spatial import cKDTree as KDTree
 
-from ..model.encoder.backbone.croco.misc import invalid_to_zeros, invalid_to_nans
+from ..model.encoder.backbone.croco.misc import invalid_to_nans, invalid_to_zeros
 
 # from dust3r.utils.device import to_numpy
 

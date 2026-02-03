@@ -1,11 +1,9 @@
-import torch
 import torch.nn as nn
 
 from .lseg_vit import (
-    _make_pretrained_clip_vitl16_384,
     _make_pretrained_clip_vitb32_384,
+    _make_pretrained_clip_vitl16_384,
     _make_pretrained_clipRN50x16_vitl16_384,
-    forward_vit,
 )
 
 

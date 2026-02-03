@@ -1,19 +1,18 @@
 from copy import deepcopy
-from dataclasses import dataclass
-from typing import Literal
 
 import torch
 from einops import rearrange
 from torch import nn
 
+from ....geometry.camera_emb import get_intrinsic_embedding
 from .backbone_croco import BackboneCrocoCfg
 from .croco.blocks import DecoderBlock
 from .croco.croco import CroCoNet
-from .croco.misc import fill_default_args, freeze_all_params, transpose_to_landscape, is_symmetrized, interleave, \
-    make_batch_symmetric
+from .croco.misc import (
+    fill_default_args,
+    freeze_all_params,
+)
 from .croco.patch_embed import get_patch_embed
-from .backbone import Backbone
-from ....geometry.camera_emb import get_intrinsic_embedding
 
 inf = float('inf')
 

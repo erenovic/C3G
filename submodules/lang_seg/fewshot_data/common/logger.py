@@ -3,8 +3,8 @@ import datetime
 import logging
 import os
 
-from tensorboardX import SummaryWriter
 import torch
+from tensorboardX import SummaryWriter
 
 
 class AverageMeter:

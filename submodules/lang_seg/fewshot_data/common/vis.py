@@ -1,11 +1,10 @@
 r""" Visualize model predictions """
 import os
 
-from PIL import Image
 import numpy as np
 import torchvision.transforms as transforms
-
 from fewshot_data.common import utils
+from PIL import Image
 
 
 class Visualizer:

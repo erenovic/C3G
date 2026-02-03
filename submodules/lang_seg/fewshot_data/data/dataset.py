@@ -1,10 +1,9 @@
 r""" Dataloader builder for few-shot semantic segmentation dataset  """
-from torchvision import transforms
-from torch.utils.data import DataLoader
-
-from fewshot_data.data.pascal import DatasetPASCAL
 from fewshot_data.data.coco import DatasetCOCO
 from fewshot_data.data.fss import DatasetFSS
+from fewshot_data.data.pascal import DatasetPASCAL
+from torch.utils.data import DataLoader
+from torchvision import transforms
 
 
 class FSSDataset:

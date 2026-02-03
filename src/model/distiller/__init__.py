@@ -2,7 +2,6 @@ import torch
 
 from .dust3d_backbone import Dust3R
 
-
 inf = float('inf')
 
 

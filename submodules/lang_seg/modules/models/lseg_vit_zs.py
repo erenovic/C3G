@@ -1,10 +1,11 @@
+import math
+import types
+
+import clip
+import timm
 import torch
 import torch.nn as nn
-import timm
-import types
-import math
 import torch.nn.functional as F
-import clip
 from torchvision import models
 
 activations = {}

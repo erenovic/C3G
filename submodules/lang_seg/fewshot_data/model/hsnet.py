@@ -5,12 +5,10 @@ from operator import add
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torchvision.models import resnet
-from torchvision.models import vgg
-
-from fewshot_data.model.base.feature import extract_feat_vgg, extract_feat_res
 from fewshot_data.model.base.correlation import Correlation
+from fewshot_data.model.base.feature import extract_feat_res, extract_feat_vgg
 from fewshot_data.model.learner import HPNLearner
+from torchvision.models import resnet, vgg
 
 
 class HypercorrSqueezeNetwork(nn.Module):

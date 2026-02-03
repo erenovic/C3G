@@ -7,13 +7,9 @@
 #   https://github.com/facebookresearch/dino/blob/master/vision_transformer.py
 #   https://github.com/rwightman/pytorch-image-models/tree/master/timm/models/vision_transformer.py
 
-import logging
-import os
-import warnings
 
-from torch import Tensor
-from torch import nn
 import torch.nn.functional as F
+from torch import Tensor, nn
 
 XFORMERS_AVAILABLE = False
 

@@ -1,26 +1,19 @@
-import json
 import os
 import os.path as osp
-
 from dataclasses import dataclass
-from functools import cached_property
-from io import BytesIO
 from pathlib import Path
 from typing import Literal
 
+import numpy as np
 import torch
 import torchvision.transforms as tf
-import numpy as np
-from einops import rearrange, repeat
-from jaxtyping import Float, UInt8
+from einops import repeat
+from jaxtyping import Float
 from PIL import Image
 from torch import Tensor
 from torch.utils.data import IterableDataset
-from torch.distributed import get_rank, get_world_size
 
-from ..geometry.projection import get_fov
 from .dataset import DatasetCfgCommon
-from .shims.augmentation_shim import apply_augmentation_shim
 from .shims.crop_shim import apply_crop_shim
 from .types import Stage
 from .view_sampler import ViewSampler

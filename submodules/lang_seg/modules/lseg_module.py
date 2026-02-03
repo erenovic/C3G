@@ -1,23 +1,11 @@
-import re
-import torch
-import torch.nn as nn
-import torchvision.transforms as transforms
+import os
 from argparse import ArgumentParser
-import pytorch_lightning as pl
-from .lsegmentation_module import LSegmentationModule
-from .models.lseg_net import LSegNet
+
+import torchvision.transforms as transforms
 from encoding.models.sseg.base import up_kwargs
 
-import os
-import clip
-import numpy as np
-
-from scipy import signal
-import glob
-
-from PIL import Image
-import matplotlib.pyplot as plt
-import pandas as pd
+from .lsegmentation_module import LSegmentationModule
+from .models.lseg_net import LSegNet
 
 
 class LSegModule(LSegmentationModule):

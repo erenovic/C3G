@@ -4,9 +4,9 @@
 import torch
 
 try:
-    import curope as _kernels # run `python setup.py install`
+    import curope as _kernels  # run `python setup.py install`
 except ModuleNotFoundError:
-    from . import curope as _kernels # run `python setup.py build_ext --inplace`
+    from . import curope as _kernels  # run `python setup.py build_ext --inplace`
 
 
 class cuRoPE2D_func (torch.autograd.Function):

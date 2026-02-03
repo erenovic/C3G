@@ -1,16 +1,11 @@
 import os
 import pathlib
-
+from argparse import ArgumentParser
 from glob import glob
 
-from argparse import ArgumentParser
-import torch
-import pytorch_lightning as pl
-import numpy as np
 import cv2
-import random
-import math
-from torchvision import transforms
+import numpy as np
+import pytorch_lightning as pl
 
 
 def do_training(hparams, model_constructor):

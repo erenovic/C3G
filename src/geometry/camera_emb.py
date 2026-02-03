@@ -1,7 +1,7 @@
 from einops import rearrange
 
-from .projection import sample_image_grid, get_local_rays
-from ..misc.sht import rsh_cart_2, rsh_cart_4, rsh_cart_6, rsh_cart_8
+from ..misc.sht import rsh_cart_2, rsh_cart_4, rsh_cart_8
+from .projection import get_local_rays, sample_image_grid
 
 
 def get_intrinsic_embedding(context, degree=0, downsample=1, merge_hw=False):

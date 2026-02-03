@@ -1,27 +1,20 @@
-import types
-import time
 import random
-import clip
-import torch
-import torch.nn as nn
-import torchvision.transforms as transforms
-
+import time
 from argparse import ArgumentParser
 
 import pytorch_lightning as pl
-
-from data import get_dataset, get_available_datasets
-
-from encoding.models import get_segmentation_model
-from encoding.nn import SegmentationLosses
-
-from encoding.utils import batch_pix_accuracy, batch_intersection_union
+import torch
 
 # add mixed precision
 import torch.cuda.amp as amp
-import numpy as np
+from data import get_available_datasets, get_dataset
+from encoding.nn import SegmentationLosses
+from encoding.utils import (
+    SegmentationMetric,
+    batch_intersection_union,
+    batch_pix_accuracy,
+)
 
-from encoding.utils import SegmentationMetric
 
 class LSegmentationModule(pl.LightningModule):
     def __init__(self, data_path, dataset, batch_size, base_lr, max_epochs, **kwargs):

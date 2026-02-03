@@ -8,11 +8,10 @@
 # and https://github.com/facebookresearch/co-tracker/tree/main
 
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
+from typing import Tuple, Union
 
-from typing import Optional, Tuple, Union
+import torch
+import torch.nn.functional as F
 
 
 def get_2d_sincos_pos_embed(embed_dim: int, grid_size: Union[int, Tuple[int, int]], return_grid=False) -> torch.Tensor:

@@ -2,11 +2,11 @@ r""" COCO-20i few-shot semantic segmentation dataset """
 import os
 import pickle
 
-from torch.utils.data import Dataset
-import torch.nn.functional as F
-import torch
-import PIL.Image as Image
 import numpy as np
+import PIL.Image as Image
+import torch
+import torch.nn.functional as F
+from torch.utils.data import Dataset
 
 
 class DatasetCOCO(Dataset):

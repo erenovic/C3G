@@ -1,7 +1,4 @@
-import os
 import torch
-from torchvision.transforms import CenterCrop, Compose
-
 
 DINOV3_MODELS = {
     'dinov3_L':("facebook/dinov3-vitl16-pretrain-lvd1689m", 1024),

@@ -10,12 +10,13 @@
 
 import torch
 import torch.nn as nn
+
 torch.backends.cuda.matmul.allow_tf32 = True # for gpu >= Ampere and pytorch >= 1.12
 from functools import partial
 
 from .blocks import Block, DecoderBlock, PatchEmbed
-from .pos_embed import get_2d_sincos_pos_embed, RoPE2D
 from .masking import RandomMask
+from .pos_embed import RoPE2D, get_2d_sincos_pos_embed
 
 
 class CroCoNet(nn.Module):

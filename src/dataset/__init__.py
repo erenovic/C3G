@@ -2,12 +2,17 @@ from dataclasses import fields
 
 from torch.utils.data import Dataset
 
-from .dataset_scannet_pose import DatasetScannetPose, DatasetScannetPoseCfgWrapper
 from ..misc.step_tracker import StepTracker
-from .dataset_re10k import DatasetRE10k, DatasetRE10kCfg, DatasetRE10kCfgWrapper, DatasetDL3DVCfgWrapper, \
-    DatasetScannetppCfgWrapper
-from .dataset_scannet import ScannetCfg, DatasetScannet, DatasetScannetCfgWrapper
-from .dataset_replica import DatasetReplica, ReplicaCfg, DatasetReplicaCfgWrapper
+from .dataset_re10k import (
+    DatasetDL3DVCfgWrapper,
+    DatasetRE10k,
+    DatasetRE10kCfg,
+    DatasetRE10kCfgWrapper,
+    DatasetScannetppCfgWrapper,
+)
+from .dataset_replica import DatasetReplica, DatasetReplicaCfgWrapper, ReplicaCfg
+from .dataset_scannet import DatasetScannet, DatasetScannetCfgWrapper, ScannetCfg
+from .dataset_scannet_pose import DatasetScannetPose, DatasetScannetPoseCfgWrapper
 from .types import Stage
 from .view_sampler import get_view_sampler
 

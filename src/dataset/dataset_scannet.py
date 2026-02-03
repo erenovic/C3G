@@ -1,11 +1,14 @@
 import json
+import os
 from dataclasses import dataclass, field
 from functools import cached_property
 from io import BytesIO
 from pathlib import Path
 from typing import Literal
-import os
 
+import cv2
+import numpy as np
+import pandas as pd
 import torch
 import torchvision.transforms as tf
 from einops import rearrange, repeat
@@ -13,18 +16,17 @@ from jaxtyping import Float, UInt8
 from PIL import Image
 from torch import Tensor
 from torch.utils.data import IterableDataset
-import cv2
-import pandas as pd
-import numpy as np
 
-from ..geometry.projection import get_fov
+from ..misc.cam_utils import camera_normalization
+from .cropping import (
+    bbox_from_intrinsics_in_out,
+    camera_matrix_of_crop,
+    crop_image_depthmap,
+    rescale_image_depthmap,
+)
 from .dataset import DatasetCfgCommon
-from .shims.augmentation_shim import apply_augmentation_shim
-from .shims.crop_shim import apply_crop_shim
 from .types import Stage
 from .view_sampler import ViewSampler
-from ..misc.cam_utils import camera_normalization
-from .cropping import crop_image_depthmap, rescale_image_depthmap, camera_matrix_of_crop, bbox_from_intrinsics_in_out
 
 
 def map_func(label_path, labels=['wall', 'floor', 'ceiling', 'chair', 'table', 'sofa', 'bed', 'other']):
@@ -108,7 +110,7 @@ class DatasetScannet(IterableDataset):
                         'towel', 'wall', 'whiteboard', 'window']
         
         # Collect chunks.
-        with open(os.path.join(cfg.roots[0], f'selected_seqs_test.json'), 'r') as f:
+        with open(os.path.join(cfg.roots[0], 'selected_seqs_test.json'), 'r') as f:
             self.scenes = json.load(f)
             self.scenes = {k: sorted(v) for k, v in self.scenes.items() if len(v) > 0}
             ignored_scenes = ['scene0696_02']

@@ -2,7 +2,9 @@
 
 import torch
 import torch.nn as nn
+
 from submodules.lang_seg.modules.models.lseg_net import LSegNet, clip
+
 
 class LSegFeatureExtractor(LSegNet):
     def __init__(self, half_res=True):

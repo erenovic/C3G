@@ -2,11 +2,11 @@ import torch
 import torch.nn as nn
 
 from .lseg_vit_zs import (
-    _make_pretrained_clip_vitl16_384,
-    _make_pretrained_clip_vitb32_384,
     _make_pretrained_clip_rn101,
-    forward_vit,
+    _make_pretrained_clip_vitb32_384,
+    _make_pretrained_clip_vitl16_384,
 )
+
 
 def _make_encoder(
     backbone,

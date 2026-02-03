@@ -5,10 +5,10 @@
 # head factory
 # --------------------------------------------------------
 from .dpt_gs_head import create_gs_dpt_head
-from .linear_head import LinearPts3d
 from .dpt_head import create_dpt_head
-from .vggt_dpt_head import DPTHead
+from .linear_head import LinearPts3d
 from .vggt_dpt_gs_head import GSDPTHead
+from .vggt_dpt_head import DPTHead
 
 
 def head_factory(head_type, output_mode, net, has_conf=False, out_nchan=3):

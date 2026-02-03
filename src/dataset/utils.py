@@ -1,13 +1,12 @@
 import collections
+import math
+import os
 import struct
 import sys
-import os
-import math
+from typing import NamedTuple
 
 import numpy as np
 import PIL
-from typing import NamedTuple
-
 
 CameraModel = collections.namedtuple(
     "CameraModel", ["model_id", "model_name", "num_params"])

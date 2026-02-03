@@ -1,4 +1,3 @@
-import csv
 import os
 from pathlib import Path
 
@@ -6,9 +5,8 @@ import torch
 from lightning.pytorch import LightningModule
 from tabulate import tabulate
 
-from ..loss.loss_ssim import ssim
 from ..misc.image_io import load_image, save_image
-from ..misc.utils import inverse_normalize, get_overlap_tag
+from ..misc.utils import get_overlap_tag, inverse_normalize
 from ..visualization.annotation import add_label
 from ..visualization.color_map import apply_color_map_to_image
 from ..visualization.layout import add_border, hcat, vcat

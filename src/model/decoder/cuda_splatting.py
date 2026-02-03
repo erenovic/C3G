@@ -2,21 +2,20 @@ from math import isqrt
 from typing import Literal
 
 import torch
-from submodules.diff_gaussian_rasterization_w_pose.diff_gaussian_rasterization import (
-    GaussianRasterizationSettings,
-    GaussianRasterizer,
-)
+from einops import rearrange, repeat
+from jaxtyping import Float
+from torch import Tensor
 
 from submodules.diff_gaussian_rasterization_w_feature_detach.diff_gaussian_rasterization import (
     FeatureDetachGaussianRasterizationSettings,
     FeatureDetachGaussianRasterizer,
 )
+from submodules.diff_gaussian_rasterization_w_pose.diff_gaussian_rasterization import (
+    GaussianRasterizationSettings,
+    GaussianRasterizer,
+)
 
-from einops import einsum, rearrange, repeat
-from jaxtyping import Float
-from torch import Tensor
-
-from ...geometry.projection import get_fov, homogenize_points
+from ...geometry.projection import get_fov
 
 
 def get_projection_matrix(

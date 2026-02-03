@@ -1,8 +1,10 @@
-import torch
-import torch.nn as nn
 from copy import copy, deepcopy
 
-from ..geometry.ptc_geometry import geotrf, inv, normalize_pointcloud, depthmap_to_pts3d
+import torch
+import torch.nn as nn
+
+from ..geometry.ptc_geometry import depthmap_to_pts3d, geotrf, normalize_pointcloud
+
 # from torchmetrics.functional.regression import pearson_corrcoef
 # from pytorch3d.loss import chamfer_distance
 

@@ -5,14 +5,12 @@
 # LICENSE file in the root directory of this source tree.
 
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from functools import partial
-from typing import Callable
 import collections
-from torch import Tensor
+from functools import partial
 from itertools import repeat
+from typing import Callable
+
+import torch.nn as nn
 
 
 # From PyTorch internals

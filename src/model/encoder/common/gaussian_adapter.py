@@ -8,7 +8,6 @@ from jaxtyping import Float
 from torch import Tensor, nn
 
 from ....geometry.projection import get_world_rays
-from ....misc.sh_rotation import rotate_sh
 from .gaussians import build_covariance
 
 

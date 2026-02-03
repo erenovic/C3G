@@ -8,15 +8,15 @@
 # the forward function also takes as input a dictionnary img_info with key "height" and "width"
 # for PixelwiseTask, the output will be of dimension B x num_channels x H x W
 # --------------------------------------------------------
-from einops import rearrange
 from typing import List
+
 import torch
 import torch.nn as nn
-# import dust3r.utils.path_to_croco
-from .dpt_block import DPTOutputAdapter, Interpolate, make_fusion_block
-from .head_modules import UnetExtractor
-from .postprocess import postprocess
+from einops import rearrange
 
+# import dust3r.utils.path_to_croco
+from .dpt_block import DPTOutputAdapter, Interpolate
+from .postprocess import postprocess
 
 # class DPTOutputAdapter_fix(DPTOutputAdapter):
 #     """

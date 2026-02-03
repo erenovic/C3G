@@ -1,16 +1,14 @@
 r""" Hypercorrelation Squeeze testing code """
 import argparse
 
-import torch.nn.functional as F
-import torch.nn as nn
 import torch
-
-from fewshot_data.model.hsnet import HypercorrSqueezeNetwork
-from fewshot_data.common.logger import Logger, AverageMeter
-from fewshot_data.common.vis import Visualizer
-from fewshot_data.common.evaluation import Evaluator
+import torch.nn as nn
 from fewshot_data.common import utils
+from fewshot_data.common.evaluation import Evaluator
+from fewshot_data.common.logger import AverageMeter, Logger
+from fewshot_data.common.vis import Visualizer
 from fewshot_data.data.dataset import FSSDataset
+from fewshot_data.model.hsnet import HypercorrSqueezeNetwork
 
 
 def test(model, dataloader, nshot):

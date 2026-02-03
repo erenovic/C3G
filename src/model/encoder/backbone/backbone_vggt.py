@@ -1,15 +1,10 @@
-from copy import deepcopy
-from dataclasses import dataclass
-from typing import Literal
 
 import torch
 from einops import rearrange
-from torch import nn
 
 from .backbone_croco import BackboneCrocoCfg
+from .croco.misc import freeze_all_params
 from .vggt.vggt import VGGT
-from .croco.misc import fill_default_args, freeze_all_params
-from ....geometry.camera_emb import get_intrinsic_embedding
 
 inf = float('inf')
 

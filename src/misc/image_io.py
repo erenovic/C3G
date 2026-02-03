@@ -2,22 +2,21 @@ import io
 from pathlib import Path
 from typing import Union
 
+import cv2
+import matplotlib as mpl
+import matplotlib.cm as cm
 import numpy as np
 import skvideo.io
 import torch
+import torchvision
 import torchvision.transforms as tf
 from einops import rearrange, repeat
 from jaxtyping import Float, UInt8
 from matplotlib.figure import Figure
 from PIL import Image
 from torch import Tensor
-import matplotlib as mpl
-import matplotlib.cm as cm
-import torchvision
-import cv2
 
 from .utils import inverse_normalize
-
 
 FloatImage = Union[
     Float[Tensor, "height width"],
@@ -148,7 +147,7 @@ def save_video(
 
     writer = skvideo.io.FFmpegWriter(path,
                                      outputdict={'-pix_fmt': 'yuv420p', '-crf': '21',
-                                                 '-vf': f'setpts=1.*PTS'})
+                                                 '-vf': 'setpts=1.*PTS'})
     for frame in frames:
         writer.writeFrame(frame)
     writer.close()

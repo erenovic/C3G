@@ -1,15 +1,16 @@
-import math
-import types
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-from .lseg_blocks import FeatureFusionBlock, Interpolate, _make_encoder, FeatureFusionBlock_custom, forward_vit
 import clip
 import numpy as np
-import pandas as pd
-import os
+import torch
+import torch.nn as nn
+
+from .lseg_blocks import (
+    FeatureFusionBlock_custom,
+    Interpolate,
+    _make_encoder,
+    forward_vit,
+)
+
 
 class depthwise_clipseg_conv(nn.Module):
     def __init__(self):

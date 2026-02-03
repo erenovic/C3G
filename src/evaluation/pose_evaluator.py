@@ -1,34 +1,19 @@
-import json
-import os
-import sys
-from typing import Any
 
-import math
-from pytorch_lightning.utilities.types import STEP_OUTPUT
 
-from ..dataset.data_module import get_data_shim
-from ..dataset.types import BatchedExample
-from ..misc.cam_utils import camera_normalization, pose_auc, update_pose, get_pnp_pose
-
-import csv
-from pathlib import Path
-import cv2
 import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from einops import rearrange
 from lightning import LightningModule
 from tabulate import tabulate
 
+from ..dataset.data_module import get_data_shim
+from ..dataset.types import BatchedExample
 from ..loss.loss_ssim import ssim
-from ..misc.image_io import load_image, save_image
-from ..misc.utils import inverse_normalize, get_overlap_tag
-from ..visualization.annotation import add_label
-from ..visualization.color_map import apply_color_map_to_image
-from ..visualization.layout import add_border, hcat, vcat
+from ..misc.cam_utils import get_pnp_pose, pose_auc, update_pose
+from ..misc.utils import get_overlap_tag
 from .evaluation_cfg import EvaluationCfg
-from .metrics import compute_lpips, compute_psnr, compute_ssim, compute_pose_error
+from .metrics import compute_pose_error
 
 
 class PoseEvaluator(LightningModule):

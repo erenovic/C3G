@@ -5,14 +5,20 @@
 # DUSt3R model class
 # --------------------------------------------------------
 from copy import deepcopy
+
 import torch
 
 from ..encoder.backbone.croco.croco import CroCoNet
-from ..encoder.backbone.croco.misc import (fill_default_args, freeze_all_params, is_symmetrized, interleave,
-                                           transpose_to_landscape, make_batch_symmetric)
+from ..encoder.backbone.croco.misc import (
+    fill_default_args,
+    freeze_all_params,
+    interleave,
+    is_symmetrized,
+    make_batch_symmetric,
+    transpose_to_landscape,
+)
 from ..encoder.backbone.croco.patch_embed import get_patch_embed
 from ..encoder.heads import head_factory
-
 
 inf = float('inf')
 

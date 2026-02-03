@@ -1,11 +1,12 @@
 from typing import Any
+
 import torch.nn as nn
 
 from .backbone import Backbone
+from .backbone_croco import AsymmetricCroCo, BackboneCrocoCfg
 from .backbone_croco_multiview import AsymmetricCroCoMulti
 from .backbone_dino import BackboneDino, BackboneDinoCfg
 from .backbone_resnet import BackboneResnet, BackboneResnetCfg
-from .backbone_croco import AsymmetricCroCo, BackboneCrocoCfg
 from .backbone_vggt import BackboneVGGT
 
 BACKBONES: dict[str, Backbone[Any]] = {

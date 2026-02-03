@@ -1,48 +1,18 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
 import streamlit as st
+
 st.set_page_config(layout="wide")
 
-from PIL import Image
-
-import os
-import torch
-
-import os
 import argparse
-import numpy as np
-from tqdm import tqdm
-from collections import OrderedDict
 
-import torch
-import torch.nn.functional as F
-from torch.utils import data
-import torchvision.transforms as transform
-from torch.nn.parallel.scatter_gather import gather
-
-from additional_utils.models import LSeg_MultiEvalModule
-from modules.lseg_module import LSegModule
-
-import cv2
-import math
-import types
-import functools
-import torchvision.transforms as torch_transforms
-import copy
-import itertools
-from PIL import Image
-import matplotlib.pyplot as plt
-import clip
-from encoding.models.sseg import BaseNet
-import matplotlib as mpl
-import matplotlib.colors as mplc
-import matplotlib.figure as mplfigure
 import matplotlib.patches as mpatches
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-from data import get_dataset
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
 import torchvision.transforms as transforms
+from additional_utils.models import LSeg_MultiEvalModule
+from encoding.models.sseg import BaseNet
+from modules.lseg_module import LSegModule
+from PIL import Image
 
 
 def get_new_pallete(num_cls):
