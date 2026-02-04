@@ -1,6 +1,6 @@
 import torch
 
-from src.visualization.color_map import apply_color_map_to_image
+from ..visualization.color_map import apply_color_map_to_image
 
 
 def inverse_normalize(tensor, mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)):
