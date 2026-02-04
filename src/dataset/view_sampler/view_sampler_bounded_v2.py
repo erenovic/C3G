@@ -132,7 +132,8 @@ class ViewSamplerBoundedV2(ViewSampler[ViewSamplerBoundedV2Cfg]):
         if not self.cameras_are_circular:
             max_context_gap = min(num_views - 1, max_context_gap)
 
-        # Compute the margin from context window to target window based on the current global step
+        # Compute the margin from context window to target window based on the
+        # current global step
         if self.stage != "test" and self.cfg.target_gap_warm_up_steps > 0:
             max_target_gap = self.schedule(
                 self.cfg.initial_max_distance_to_context_views,
