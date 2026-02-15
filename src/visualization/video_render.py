@@ -30,13 +30,13 @@ class TrajectoryFn(Protocol):
 
 
 def render_video_wobble(
-        gaussians: Gaussians,
-        decoder: Decoder,
-        batch: BatchedExample,
-        num_frames: int = 60,
-        smooth: bool = True,
-        loop_reverse: bool = True,
-        add_depth: bool = False,
+    gaussians: Gaussians,
+    decoder: Decoder,
+    batch: BatchedExample,
+    num_frames: int = 60,
+    smooth: bool = True,
+    loop_reverse: bool = True,
+    add_depth: bool = False,
 ) -> Tensor:
     # Two views are needed to get the wobble radius，use the first and the last view
     _, v, _, _ = batch["context"]["extrinsics"].shape
@@ -57,17 +57,26 @@ def render_video_wobble(
         )
         return extrinsics, intrinsics
 
-    return render_video_generic(gaussians, decoder, batch, trajectory_fn, num_frames, smooth, loop_reverse, add_depth)
+    return render_video_generic(
+        gaussians,
+        decoder,
+        batch,
+        trajectory_fn,
+        num_frames,
+        smooth,
+        loop_reverse,
+        add_depth,
+    )
 
 
 def render_video_interpolation(
-        gaussians: Gaussians,
-        decoder: Decoder,
-        batch: BatchedExample,
-        num_frames: int = 60,
-        smooth: bool = True,
-        loop_reverse: bool = True,
-        add_depth: bool = False,
+    gaussians: Gaussians,
+    decoder: Decoder,
+    batch: BatchedExample,
+    num_frames: int = 60,
+    smooth: bool = True,
+    loop_reverse: bool = True,
+    add_depth: bool = False,
 ) -> Tensor:
     _, v, _, _ = batch["context"]["extrinsics"].shape
 
@@ -84,17 +93,26 @@ def render_video_interpolation(
         )
         return extrinsics[None], intrinsics[None]
 
-    return render_video_generic(gaussians, decoder, batch, trajectory_fn, num_frames, smooth, loop_reverse, add_depth)
+    return render_video_generic(
+        gaussians,
+        decoder,
+        batch,
+        trajectory_fn,
+        num_frames,
+        smooth,
+        loop_reverse,
+        add_depth,
+    )
 
 
 def render_video_interpolation_exaggerated(
-        gaussians: Gaussians,
-        decoder: Decoder,
-        batch: BatchedExample,
-        num_frames: int = 300,
-        smooth: bool = False,
-        loop_reverse: bool = False,
-        add_depth: bool = False,
+    gaussians: Gaussians,
+    decoder: Decoder,
+    batch: BatchedExample,
+    num_frames: int = 300,
+    smooth: bool = False,
+    loop_reverse: bool = False,
+    add_depth: bool = False,
 ) -> Tensor:
     # Two views are needed to get the wobble radius.
     _, v, _, _ = batch["context"]["extrinsics"].shape
@@ -121,18 +139,27 @@ def render_video_interpolation_exaggerated(
         )
         return extrinsics @ tf, intrinsics[None]
 
-    return render_video_generic(gaussians, decoder, batch, trajectory_fn, num_frames, smooth, loop_reverse, add_depth)
+    return render_video_generic(
+        gaussians,
+        decoder,
+        batch,
+        trajectory_fn,
+        num_frames,
+        smooth,
+        loop_reverse,
+        add_depth,
+    )
 
 
 def render_video_generic(
-        gaussians: Gaussians,
-        decoder: Decoder,
-        batch: BatchedExample,
-        trajectory_fn: TrajectoryFn,
-        num_frames: int = 30,
-        smooth: bool = True,
-        loop_reverse: bool = True,
-        add_depth: bool = False,
+    gaussians: Gaussians,
+    decoder: Decoder,
+    batch: BatchedExample,
+    trajectory_fn: TrajectoryFn,
+    num_frames: int = 30,
+    smooth: bool = True,
+    loop_reverse: bool = True,
+    add_depth: bool = False,
 ) -> Tensor:
     device = gaussians.means.device
 
