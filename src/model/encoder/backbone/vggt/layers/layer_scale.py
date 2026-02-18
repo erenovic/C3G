@@ -12,7 +12,9 @@ from torch import Tensor, nn
 
 
 class LayerScale(nn.Module):
-    def __init__(self, dim: int, init_values: Union[float, Tensor] = 1e-5, inplace: bool = False) -> None:
+    def __init__(
+        self, dim: int, init_values: Union[float, Tensor] = 1e-5, inplace: bool = False
+    ) -> None:
         super().__init__()
         self.inplace = inplace
         self.gamma = nn.Parameter(init_values * torch.ones(dim))

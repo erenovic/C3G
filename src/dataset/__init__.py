@@ -26,7 +26,14 @@ DATASETS: dict[str, Dataset] = {
 }
 
 
-DatasetCfgWrapper = DatasetRE10kCfgWrapper | DatasetDL3DVCfgWrapper | DatasetScannetppCfgWrapper | DatasetScannetPoseCfgWrapper | DatasetScannetCfgWrapper | DatasetReplicaCfgWrapper
+DatasetCfgWrapper = (
+    DatasetRE10kCfgWrapper
+    | DatasetDL3DVCfgWrapper
+    | DatasetScannetppCfgWrapper
+    | DatasetScannetPoseCfgWrapper
+    | DatasetScannetCfgWrapper
+    | DatasetReplicaCfgWrapper
+)
 DatasetCfg = DatasetRE10kCfg | ScannetCfg | ReplicaCfg
 
 

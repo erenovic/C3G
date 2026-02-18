@@ -155,15 +155,8 @@ class _RasterizeGaussians(torch.autograd.Function):
         return color, feature_map, radii, depth, opacity, n_touched  ###
 
     @staticmethod
-    def backward(
-        ctx,
-        grad_out_color,
-        grad_out_feature,
-        grad_out_radii,
-        grad_out_depth,
-        grad_out_opacity,
-        grad_n_touched,
-    ):  ###
+    def backward(ctx, grad_out_color, grad_out_feature, grad_out_radii, grad_out_depth, grad_out_opacity, grad_n_touched): ###
+
         # Restore necessary values from context
         num_rendered = ctx.num_rendered
         raster_settings = ctx.raster_settings
@@ -303,20 +296,8 @@ class FeatureDetachGaussianRasterizer(nn.Module):
 
         return visible
 
-    def forward(
-        self,
-        means3D,
-        means2D,
-        opacities,
-        shs=None,
-        semantic_feature=None,
-        colors_precomp=None,
-        scales=None,
-        rotations=None,
-        cov3D_precomp=None,
-        theta=None,
-        rho=None,
-    ):  ###
+    def forward(self, means3D, means2D, opacities, shs = None, semantic_feature=None, colors_precomp = None, scales = None, rotations = None, cov3D_precomp = None, theta=None, rho=None): ###
+        
         raster_settings = self.raster_settings
 
         if (shs is None and colors_precomp is None) or (
